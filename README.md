@@ -2,8 +2,7 @@
 
 Simply creates an HTTP API for your FactoryGirl factories to be used by client tests.
 
-Tested against ruby 1.8.7, 1.9.2, 1.9.3, ruby-head, jruby-18mode, jruby-19mode, jruby-head, rbx-18mode, rbx-19mode, and
-ree
+Tested against ruby 1.9.2, 1.9.3, ruby-head, jruby-19mode, jruby-head, rbx-19mode, and ree
 
 [![Build Status](https://secure.travis-ci.org/jtescher/factory_girl_rails-remote_api.png)]
 
