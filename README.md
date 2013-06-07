@@ -73,7 +73,7 @@ end
 
 Will make the created user available via any client:
 ```bash
-$ curl http://localhost:3000/factories/user?first_name=James&last_name=Deen
+$ curl http://localhost:3000/factories/user?user[first_name]=James&user[last_name]=Deen
 {
   "created_at": "2013-06-07T23:02:32Z",
   "first_name": "John",
