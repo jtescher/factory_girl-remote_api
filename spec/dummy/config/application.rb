@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "factory_girl_rails-remote_api"
+require "factory_girl_rails/remote_api"
 
 module Dummy
   class Application < Rails::Application

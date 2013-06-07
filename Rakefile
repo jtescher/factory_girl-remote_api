@@ -31,7 +31,7 @@ Bundler::GemHelper.install_tasks
 begin
   require 'rspec/core'
   require 'rspec/core/rake_task'
-  RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
+  RSpec::Core::RakeTask.new(:spec => ['app:db:migrate', 'app:db:test:prepare'])
 rescue LoadError
   desc 'spec rake task not available (rspec not installed)'
   task :spec do
