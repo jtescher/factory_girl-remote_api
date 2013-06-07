@@ -4,7 +4,12 @@ Simply creates an HTTP API for your FactoryGirl factories to be used by client t
 
 Tested against ruby 1.9.2, 1.9.3, ruby-head, jruby-19mode, jruby-head, rbx-19mode, and ree
 
-[![Build Status](https://secure.travis-ci.org/jtescher/factory_girl_rails-remote_api.png)]
+[![Build Status](https://travis-ci.org/jtescher/factory_girl_rails-remote_api.png?branch=master)]
+(https://travis-ci.org/jtescher/factory_girl_rails-remote_api)
+[![Code Climate](https://codeclimate.com/github/jtescher/factory_girl_rails-remote_api.png)]
+(https://codeclimate.com/github/jtescher/factory_girl_rails-remote_api)
+[![Dependency Status](https://gemnasium.com/jtescher/factory_girl_rails-remote_api.png)]
+(https://gemnasium.com/jtescher/factory_girl_rails-remote_api)
 
 
 ##Installation
