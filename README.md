@@ -17,7 +17,7 @@ Tested against ruby-head, ruby 2.0.0, ruby 1.9.3,  jruby-19mode, jruby-head, and
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'descriptive-statistics', '~> 0.0.1'
+gem 'factory_girl_rails-remote_api', '~> 0.0.1'
 ```
 
 And then execute:
@@ -27,7 +27,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install descriptive-statistics
+$ gem install factory_girl_rails-remote_api
 ```
 
 Then mount as an engine in your config/routes.rb file.
