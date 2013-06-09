@@ -45,7 +45,7 @@ end
 First install [FactoryGirl](https://github.com/thoughtbot/factory_girl_rails) and create some
 [factories](https://github.com/thoughtbot/factory_girl/wiki/Usage).
 
-To use with a client application, start rails in the `test` environment (or whichever environment as the engine mounted).
+To use with a client application, start rails in the `test` environment (or whichever environment has the engine mounted).
 ```bash
 $ rails server -e test
 ```
