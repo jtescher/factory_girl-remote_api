@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    factory_girl_rails-remote_api (0.0.1)
+    factory_girl_rails-remote_api (0.1.0)
       factory_girl_rails (~> 4.2.1)
       rails (~> 3.2.13)
 
