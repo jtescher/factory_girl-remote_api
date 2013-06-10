@@ -83,6 +83,15 @@ $ curl http://localhost:3000/factories/user?user[first_name]=John&user[last_name
 }
 ```
 
+And attributes for the user without creating it:
+```bash
+$ curl http://localhost:3000/factories/attributes_for/user?user[first_name]=John
+{
+  "first_name": "John",
+  "last_name": "FactoryDefaultLastName",
+}
+```
+
 
 ## Contributing
 

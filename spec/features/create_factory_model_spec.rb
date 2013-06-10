@@ -10,4 +10,11 @@ feature 'Create factory model' do
     visit '/factories/user?user[first_name]=James'
     expect(JSON.parse(page.body)['first_name']).to eq('James')
   end
+
+  scenario 'list attributes for a user without persisting it' do
+    visit '/factories/attributes_for/user?user[first_name]=James'
+    expect(JSON.parse(page.body)['first_name']).to eq('James')
+    p page.body
+    expect(User.count).to eq(0)
+  end
 end
