@@ -126,6 +126,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-jdbcsqlite3-adapter (~> 1.2.9)
   appraisal (~> 0.5.2)
   capybara (~> 2.1.0)
   factory_girl_rails-remote_api!
