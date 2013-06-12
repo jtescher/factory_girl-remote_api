@@ -20,8 +20,16 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
-load 'rails/tasks/engine.rake'
+
+require 'rails'
+ENV['RAILS_ENV'] ||= 'test'
+rails_version = Rails::VERSION::STRING.split('.').take(2).join
+APP_RAKEFILE = File.expand_path("../spec/dummy_#{rails_version}/Rakefile", __FILE__)
+if Rails::VERSION::MINOR > 0
+  load 'rails/tasks/engine.rake'
+else
+  load File.expand_path('../spec/support/engine_support_backport.rake', __FILE__)
+end
 
 # Load all tasks
 Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
@@ -40,3 +48,7 @@ rescue LoadError
 end
 
 task default: :spec
+
+
+# Appraisals
+require 'appraisal'

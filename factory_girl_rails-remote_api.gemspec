@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '~> 3.2.13'
+  s.add_dependency 'rails', '>= 3.1.0'
   s.add_dependency 'factory_girl_rails', '~> 4.2.1'
 
   if defined?(JRUBY_VERSION)
@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '~> 2.13.2'
   s.add_development_dependency 'capybara', '~> 2.1.0'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
+  s.add_development_dependency 'appraisal', '~> 0.5.2'
 end

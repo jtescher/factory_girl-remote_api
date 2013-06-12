@@ -1,8 +1,9 @@
 require 'simplecov'
 SimpleCov.start
 
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../dummy/config/environment', __FILE__)
+require 'rails'
+RAILS_MINOR_VERSION = Rails::VERSION::STRING.split('.').take(2).join
+require File.expand_path("../dummy_#{RAILS_MINOR_VERSION}/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
