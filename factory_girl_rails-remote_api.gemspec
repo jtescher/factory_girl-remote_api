@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/jtescher/factory_girl_rails-remote_api'
   s.summary     = 'An API for your FactoryGirl factories.'
   s.description = 'Simply creates an HTTP API for your FactoryGirl factories to be used by client tests.'
-  s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem')
+  s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $0 =~ /gem\z/
   s.cert_chain  = ['gem-public_cert.pem']
 
   s.files = Dir['{app,config,db,lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.md']
