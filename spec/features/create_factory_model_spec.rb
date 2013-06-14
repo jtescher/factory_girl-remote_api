@@ -2,12 +2,16 @@ require 'spec_helper'
 
 feature 'Create factory model' do
   scenario 'create user model via get' do
-    visit '/factories/user'
+    expect {
+      visit '/factories/user'
+    }.to change { User.count }.from(0).to(1)
     expect(page.body).to eq(User.first.to_json)
   end
 
   scenario 'create user model with specific attributes' do
-    visit '/factories/user?user[first_name]=James'
+    expect {
+      visit '/factories/user?user[first_name]=James'
+    }.to change { User.count }.from(0).to(1)
     expect(JSON.parse(page.body)['first_name']).to eq('James')
   end
 

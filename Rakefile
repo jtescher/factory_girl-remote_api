@@ -1,4 +1,7 @@
 #!/usr/bin/env rake
+
+require 'appraisal'
+
 begin
   require 'bundler/setup'
 rescue LoadError
@@ -23,37 +26,29 @@ end
 begin
   require 'rspec/core'
   require 'rspec/core/rake_task'
-
-  # STUPID HACK TO GET BUNDLE_GEMFILE SET FROM APPRAISAL
-  class BundledRSpecRakeTask < RSpec::Core::RakeTask
-    unless defined?(JRUBY_VERSION)
-      BUNDLE_GEMFILE = ENV['BUNDLE_GEMFILE']
-
-      def spec_command
-        "BUNDLE_GEMFILE=#{BUNDLE_GEMFILE} " + super
-      end
-
-      def runner
-        "bundle exec " + super
-      end
-    end
-  end
-
-  BundledRSpecRakeTask.new(spec: %w[app:db:migrate app:db:test:prepare])
+  RSpec::Core::RakeTask.new(spec: %w[app:db:migrate app:db:test:prepare])
 rescue LoadError
-  p "LOAD ERROR"
   desc 'spec rake task not available (rspec not installed)'
   task :spec do
     abort 'Spec rake task is not available. Be sure to install rspec as gem.'
   end
 end
 
+# Find the right dummy Rakefile to load. If in appraisal, use that version of dummy Rails, else default to 3.2.
+rails_minor_version = if ENV['BUNDLE_GEMFILE'] =~ /gemfiles/
+                        ENV['BUNDLE_GEMFILE'].split('/').last.scan(/(\d).(\d)/).join
+                      else
+                        '32'
+                      end
+APP_RAKEFILE = File.expand_path("../spec/dummy_#{rails_minor_version}/Rakefile", __FILE__)
 
-require 'rails'
+# Ensure the dummy app is in the test environment
 ENV['RAILS_ENV'] ||= 'test'
-rails_version = Rails::VERSION::STRING.split('.').take(2).join
-APP_RAKEFILE = File.expand_path("../spec/dummy_#{rails_version}/Rakefile", __FILE__)
+
+# Stop Rails from resetting the BUNDLE_GEMFILE env variable on load.
+old_bundle_gemfile = ENV['BUNDLE_GEMFILE']
 load 'rails/tasks/engine.rake'
+ENV['BUNDLE_GEMFILE'] = old_bundle_gemfile
 
 # Load all tasks
 Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
@@ -61,7 +56,3 @@ Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
 Bundler::GemHelper.install_tasks
 
 task default: :spec
-
-
-# Appraisals
-require 'appraisal'

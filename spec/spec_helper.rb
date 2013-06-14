@@ -1,8 +1,13 @@
 require 'simplecov'
 SimpleCov.start
 
-require 'rails'
-RAILS_MINOR_VERSION = Rails::VERSION::STRING.split('.').take(2).join
+ENV['RAILS_ENV'] ||= 'test'
+RAILS_MINOR_VERSION = if ENV['BUNDLE_GEMFILE'] =~ /gemfiles/
+                        ENV['BUNDLE_GEMFILE'].split('/').last.scan(/(\d).(\d)/).join
+                      else
+                        '32'
+                      end
+
 require File.expand_path("../dummy_#{RAILS_MINOR_VERSION}/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
@@ -15,7 +20,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false # Database Cleaner
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
