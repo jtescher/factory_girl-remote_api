@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     s.add_development_dependency 'sqlite3', '~> 1.3.7'
   end
   s.add_development_dependency 'rails', '>= 3.1.0'
+  s.add_development_dependency 'rdoc', '~> 4.0.1'
   s.add_development_dependency 'rspec-rails', '~> 2.13.2'
   s.add_development_dependency 'capybara', '~> 2.1.0'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
