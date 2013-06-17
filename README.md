@@ -10,6 +10,8 @@ Tested against ruby-head, ruby 2.0.0, ruby 1.9.3,  jruby-19mode, jruby-head, and
 (https://codeclimate.com/github/jtescher/factory_girl_rails-remote_api)
 [![Dependency Status](https://gemnasium.com/jtescher/factory_girl_rails-remote_api.png)]
 (https://gemnasium.com/jtescher/factory_girl_rails-remote_api)
+[![Coverage Status](https://coveralls.io/repos/jtescher/factory_girl_rails-remote_api/badge.png)]
+(https://coveralls.io/r/jtescher/factory_girl_rails-remote_api)
 
 
 ##Installation
@@ -99,7 +101,7 @@ FactoryGirlRails::RemoteApi can also be used between rails servers by the client
 First install the gem (You don't have to mount the engine in routes.rb)
 
 Then configure the server URL (if different than localhost:3000/factories) in
-`config/initializers/factory_girl_rails-remote_api.rb`
+`spec/support/factory_girl_rails-remote_api.rb`
 
 ```ruby
 FactoryGirlRails::RemoteApi.configure do |config|
