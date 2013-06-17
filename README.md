@@ -130,6 +130,16 @@ it 'Does something with attributes of a model that are not persisted on the serv
 end
 ```
 
+It is also possible to use child factories:
+
+ ```ruby
+ it 'Does something with attributes of a child factory' do
+    remote_user = FactoryGirlRails::RemoteApi.attributes_for(:authenticated_user, parent_factory: 'user')
+    remote_user #=> { "first_name" => "DefaultFirstName", "last_name" => "DefaultLastName" }
+    ...
+ end
+ ```
+
 
 ## Contributing
 

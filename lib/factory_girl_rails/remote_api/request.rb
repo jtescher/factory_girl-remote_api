@@ -8,7 +8,7 @@ module FactoryGirlRails
       def get_response_for(factory_method, factory, attributes)
         uri = uri_for(factory_method, factory)
         uri.query = attributes_as_query(factory, attributes)
-        parsed_response(Net::HTTP.get_response(uri).body, factory.to_s)
+        parsed_response(Net::HTTP.get_response(uri).body, attributes[:parent_factory] || factory.to_s)
       end
 
     private
