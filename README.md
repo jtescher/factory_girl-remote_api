@@ -92,6 +92,41 @@ $ curl http://localhost:3000/factories/attributes_for/user?user[first_name]=John
 }
 ```
 
+## Usage (As Client)
+
+FactoryGirlRails::RemoteApi can also be used between rails servers by the client rails app.
+First install the gem (You don't have to mount the engine in routes.rb)
+
+Then configure the server URL (if different than localhost:3000/factories) in
+`config/initializers/factory_girl_rails-remote_api.rb`
+
+```ruby
+FactoryGirlRails::RemoteApi.configure do |config|
+  config.server_url = 'http://localhost:3001'  # Default: http://localhost:3000
+  config.server_mount_path = '/remote_models'  # Default: /factories
+end
+```
+
+Then you can create records on the server rails app during tests by includeing the following in your test files:
+
+```ruby
+it 'Does something with a model that is persisted on the server' do
+   remote_user = FactoryGirlRails::RemoteApi.create(:user)
+   remote_user #=> { "id" => 1, "first_name" => "John", "last_name" => "Doe", "created_at"=> date, "updated_at"=> date }
+   ...
+end
+```
+
+And you can get attributes for models defined in factories on the server as well:
+
+```ruby
+it 'Does something with attributes of a model that are not persisted on the server' do
+   remote_user = FactoryGirlRails::RemoteApi.attributes_for(:user, first_name: 'John')
+   remote_user #=> { "first_name" => "John", "last_name" => "DefaultLastName" }
+   ...
+end
+```
+
 
 ## Contributing
 
