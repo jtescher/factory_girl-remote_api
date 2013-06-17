@@ -8,7 +8,7 @@ module FactoryGirlRails
       def get_response_for(factory_method, factory, attributes)
         uri = uri_for(factory_method, factory)
         uri.query = attributes_as_query(factory, attributes)
-        JSON.parse(Net::HTTP.get_response(uri).body)
+        parsed_response(Net::HTTP.get_response(uri).body, factory.to_s)
       end
 
     private
@@ -27,6 +27,11 @@ module FactoryGirlRails
       def attributes_as_query(factory, attributes)
         attributes = { factory.to_sym => attributes } if attributes != {}
         attributes.to_query
+      end
+
+      def parsed_response(response_body, json_root)
+        response_json = JSON.parse(response_body)
+        response_json.key?(json_root) ? response_json[json_root] : response_json
       end
 
     end
