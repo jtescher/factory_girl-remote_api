@@ -19,7 +19,7 @@ Tested against ruby-head, ruby 2.0.0, ruby 1.9.3,  jruby-19mode, jruby-head, and
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'factory_girl_rails-remote_api', '~> 0.2.0'
+gem 'factory_girl_rails-remote_api', '~> 0.2.1'
 ```
 
 And then execute:
