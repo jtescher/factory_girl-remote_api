@@ -15,6 +15,13 @@ feature 'Create factory model' do
     expect(JSON.parse(page.body)['first_name']).to eq('James')
   end
 
+  scenario 'create user model with specific attributes' do
+    expect {
+      visit '/factories/authenticated_user?authenticated_user[first_name]=James&authenticated_user[parent_factory]=user'
+    }.to change { User.count }.from(0).to(1)
+    expect(JSON.parse(page.body)['first_name']).to eq('James')
+  end
+
   scenario 'list attributes for a user without persisting it' do
     visit '/factories/attributes_for/user?user[first_name]=James'
     expect(JSON.parse(page.body)['first_name']).to eq('James')

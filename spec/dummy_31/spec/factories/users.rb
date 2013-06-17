@@ -5,4 +5,9 @@ FactoryGirl.define do
     first_name 'John'
     last_name  'Doe'
   end
+
+  factory :authenticated_user, parent: :user do
+    first_name 'Jane'
+    last_name  'Doe'
+  end
 end
