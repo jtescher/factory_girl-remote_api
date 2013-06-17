@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '~> 2.13.2'
   s.add_development_dependency 'capybara', '~> 2.1.0'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
+  s.add_development_dependency 'coveralls', '~> 0.6.7'
   s.add_development_dependency 'appraisal', '~> 0.5.2'
   s.add_development_dependency 'database_cleaner', '~> 1.0.1'
 end
