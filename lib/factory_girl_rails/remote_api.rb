@@ -1,7 +1,7 @@
 require 'factory_girl_rails'
 require 'factory_girl_rails/remote_api/engine'
 require 'factory_girl_rails/remote_api/configuration'
-require 'factory_girl_rails/remote_api/request'
+require 'factory_girl_rails/remote_api/remote_factory'
 
 module FactoryGirlRails
   module RemoteApi
@@ -19,11 +19,11 @@ module FactoryGirlRails
     end
 
     def self.create(factory, attributes = {})
-      FactoryGirlRails::RemoteApi::Request.new.get_response_for(:create, factory, attributes)
+      FactoryGirlRails::RemoteApi::RemoteFactory.model_from(:create, factory, attributes)
     end
 
     def self.attributes_for(factory, attributes = {})
-      FactoryGirlRails::RemoteApi::Request.new.get_response_for(:attributes_for, factory, attributes)
+      FactoryGirlRails::RemoteApi::RemoteFactory.model_from(:attributes_for, factory, attributes)
     end
 
   end

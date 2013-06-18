@@ -1,6 +1,6 @@
 require 'simplecov'
 require 'coveralls'
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter if ENV['BUNDLE_GEMFILE'] =~ /gemfiles/
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
