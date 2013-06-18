@@ -122,14 +122,26 @@ it 'Does something with a model that is persisted on the server' do
 end
 ```
 
+And you can build records on the client rails app during tests by includeing the following in your test files:
+
+```ruby
+it 'Does something with a model that is persisted on the server' do
+   user = FactoryGirlRails::RemoteApi.build(:user)
+   user.id #=> nil
+   user.first_name #=> "Tom"
+   user.last_name #=> "Smith"
+   ...
+end
+```
+
 And you can get attributes for models defined in factories on the server as well:
 
 ```ruby
 it 'Does something with attributes of a model that are not persisted on the server' do
-   user = FactoryGirlRails::RemoteApi.attributes_for(:user, first_name: 'John')
-   user.id #=> nil
-   user.first_name #=> "John"
-   user.last_name #=> "Smith"
+   user_attributes = FactoryGirlRails::RemoteApi.attributes_for(:user, first_name: 'John')
+   user_attributes[:id] #=> nil
+   user_attributes[:first_name] #=> "John"
+   user_attributes[:last_name] #=> "Smith"
    ...
 end
 ```
@@ -138,10 +150,10 @@ It is also possible to create or get attributes of a child factory:
 
  ```ruby
  it 'Does something with attributes of a child factory' do
-    user = FactoryGirlRails::RemoteApi.attributes_for(:expired_user, first_name: "John", parent_factory: 'user')
-    user.id #=> nil
-    user.first_name #=> "John"
-    user.last_name #=> "Smith"
+    user_attributes = FactoryGirlRails::RemoteApi.attributes_for(:expired_user, parent_factory: 'user')
+    user_attributes[:id] #=> nil
+    user_attributes[:first_name] #=> "John"
+    user_attributes[:last_name] #=> "Smith"
     ...
  end
  ```
