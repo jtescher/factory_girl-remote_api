@@ -1,7 +1,7 @@
-module FactoryGirlRails
+module FactoryGirl
   module RemoteApi
     class Engine < ::Rails::Engine
-      isolate_namespace FactoryGirlRails::RemoteApi
+      isolate_namespace FactoryGirl::RemoteApi
 
       config.generators do |g|
         g.test_framework :rspec, fixture: false

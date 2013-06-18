@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount FactoryGirlRails::RemoteApi::Engine => "/factories"
+  mount FactoryGirl::RemoteApi::Engine => "/factories"
 end

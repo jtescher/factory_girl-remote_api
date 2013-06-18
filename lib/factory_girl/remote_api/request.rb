@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-module FactoryGirlRails
+module FactoryGirl
   module RemoteApi
     class Request
 
@@ -21,7 +21,7 @@ module FactoryGirlRails
       end
 
       def configuration
-        FactoryGirlRails::RemoteApi.configuration
+        FactoryGirl::RemoteApi.configuration
       end
 
       def attributes_as_query(factory, attributes)

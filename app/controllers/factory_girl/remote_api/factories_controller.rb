@@ -1,6 +1,6 @@
-module FactoryGirlRails
+module FactoryGirl
   module RemoteApi
-    class FactoriesController < FactoryGirlRails::RemoteApi::ApplicationController
+    class FactoriesController < FactoryGirl::RemoteApi::ApplicationController
       respond_to :json
 
       def create

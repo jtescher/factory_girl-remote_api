@@ -1,4 +1,4 @@
-module FactoryGirlRails
+module FactoryGirl
   module RemoteApi
     class ApplicationController < ActionController::Base
     end

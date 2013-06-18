@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require
-require "factory_girl_rails/remote_api"
+require "factory_girl/remote_api"
 
 module Dummy
   class Application < Rails::Application

@@ -1,11 +1,11 @@
-require 'factory_girl_rails/remote_api/request'
+require 'factory_girl/remote_api/request'
 
-module FactoryGirlRails
+module FactoryGirl
   module RemoteApi
     class RemoteFactory
 
       def self.model_from(factory_method, factory, attributes)
-        final_attributes = FactoryGirlRails::RemoteApi::Request.new.get_response_for(factory_method, factory, attributes)
+        final_attributes = FactoryGirl::RemoteApi::Request.new.get_response_for(factory_method, factory, attributes)
         new.instantiate_model(final_attributes, factory, attributes)
       end
 

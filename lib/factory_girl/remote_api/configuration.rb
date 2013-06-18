@@ -1,4 +1,4 @@
-module FactoryGirlRails
+module FactoryGirl
   module RemoteApi
     class Configuration
       attr_reader :server_url, :server_mount_path

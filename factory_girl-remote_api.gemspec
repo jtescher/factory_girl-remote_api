@@ -1,15 +1,15 @@
 $:.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require 'factory_girl_rails/remote_api/version'
+require 'factory_girl/remote_api/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'factory_girl_rails-remote_api'
-  s.version     = FactoryGirlRails::RemoteApi::VERSION
+  s.name        = 'factory_girl-remote_api'
+  s.version     = FactoryGirl::RemoteApi::VERSION
   s.authors     = ['Julian Tescher']
   s.email       = ['jatescher@gmail.com']
-  s.homepage    = 'https://github.com/jtescher/factory_girl_rails-remote_api'
+  s.homepage    = 'https://github.com/jtescher/factory_girl-remote_api'
   s.summary     = 'An API for your FactoryGirl factories.'
   s.description = 'Simply creates an HTTP API for your FactoryGirl factories to be used by client tests.'
   s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $0 =~ /gem\z/

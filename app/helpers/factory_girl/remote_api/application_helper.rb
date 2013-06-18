@@ -1,4 +1,4 @@
-module FactoryGirlRails::RemoteApi
+module FactoryGirl::RemoteApi
   module ApplicationHelper
   end
 end
