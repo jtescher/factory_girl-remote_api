@@ -22,8 +22,12 @@ module FactoryGirlRails
       FactoryGirlRails::RemoteApi::RemoteFactory.model_from(:create, factory, attributes)
     end
 
+    def self.build(factory, attributes = {})
+      FactoryGirlRails::RemoteApi::RemoteFactory.model_from(:build, factory, attributes)
+    end
+
     def self.attributes_for(factory, attributes = {})
-      FactoryGirlRails::RemoteApi::RemoteFactory.model_from(:attributes_for, factory, attributes)
+      FactoryGirlRails::RemoteApi::Request.new.get_response_for(:attributes_for, factory, attributes)
     end
 
   end

@@ -31,7 +31,8 @@ module FactoryGirlRails
 
       def parsed_response(response_body, json_root)
         response_json = JSON.parse(response_body)
-        response_json.key?(json_root) ? response_json[json_root] : response_json
+        attributes = response_json.key?(json_root) ? response_json[json_root] : response_json
+        attributes.with_indifferent_access
       end
 
     end
