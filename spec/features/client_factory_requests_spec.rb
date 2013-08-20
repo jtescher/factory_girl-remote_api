@@ -56,4 +56,20 @@ feature 'Client factory requests' do
     expect(user_attributes['first_name']).to eq('James')
     expect(user_attributes[:first_name]).to eq('James')
   end
+
+  scenario 'attributes for a created user model from a remote factory' do
+    stub_with_real_response('/user?')
+    created_user_attributes = FactoryGirl::RemoteApi.created_attributes_for(:user)
+    expect(User.count).to eq(1)
+    expect(created_user_attributes[:id]).to_not be_nil
+  end
+
+  scenario 'attributes for a created user model from a remote factory with specific attributes' do
+    stub_with_real_response('/user?user%5Bfirst_name%5D=James')
+    created_user_attributes = FactoryGirl::RemoteApi.created_attributes_for(:user, first_name: 'James')
+    expect(User.count).to eq(1)
+    expect(created_user_attributes[:id]).to_not be_nil
+    expect(created_user_attributes['first_name']).to eq('James')
+    expect(created_user_attributes[:first_name]).to eq('James')
+  end
 end

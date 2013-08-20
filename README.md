@@ -12,6 +12,8 @@ Tested against ruby-head, ruby 2.0.0, ruby 1.9.3,  jruby-19mode, jruby-head, and
 (https://gemnasium.com/jtescher/factory_girl-remote_api)
 [![Coverage Status](https://coveralls.io/repos/jtescher/factory_girl-remote_api/badge.png)]
 (https://coveralls.io/r/jtescher/factory_girl-remote_api)
+[![Gem Version](https://badge.fury.io/rb/factory_girl-remote_api.png)
+](http://badge.fury.io/rb/factory_girl-remote_api)
 
 
 ##Installation

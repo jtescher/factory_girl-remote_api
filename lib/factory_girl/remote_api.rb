@@ -31,5 +31,9 @@ module FactoryGirl
       FactoryGirl::RemoteApi::Request.new.get_response_for(:attributes_for, factory, attributes)
     end
 
+    def self.created_attributes_for(factory, attributes = {})
+      FactoryGirl::RemoteApi::Request.new.get_response_for(:create, factory, attributes)
+    end
+
   end
 end
