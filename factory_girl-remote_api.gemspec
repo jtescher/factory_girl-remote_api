@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'factory_girl_rails', '~> 4.2.1'
+  s.add_dependency 'factory_girl_rails', '~> 4.2'
 
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.2.9'
@@ -29,10 +29,10 @@ Gem::Specification.new do |s|
   end
   s.add_development_dependency 'rails', '>= 3.1.0'
   s.add_development_dependency 'rdoc', '>= 3.4'
-  s.add_development_dependency 'rspec-rails', '~> 2.13.2'
+  s.add_development_dependency 'rspec-rails', '~> 2.14.0'
   s.add_development_dependency 'capybara', '~> 2.1.0'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
-  s.add_development_dependency 'coveralls', '~> 0.6.7'
+  s.add_development_dependency 'coveralls', '~> 0.7.0'
   s.add_development_dependency 'appraisal', '~> 0.5.2'
-  s.add_development_dependency 'database_cleaner', '~> 1.0.1'
+  s.add_development_dependency 'database_cleaner', '~> 1.2.0'
 end
