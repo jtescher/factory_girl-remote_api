@@ -7,9 +7,8 @@ ENV['RAILS_ENV'] ||= 'test'
 RAILS_MINOR_VERSION = if ENV['BUNDLE_GEMFILE'] =~ /gemfiles/
                         ENV['BUNDLE_GEMFILE'].split('/').last.scan(/(\d).(\d)/).join
                       else
-                        '32'
+                        '40'
                       end
-
 require File.expand_path("../dummy_#{RAILS_MINOR_VERSION}/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'

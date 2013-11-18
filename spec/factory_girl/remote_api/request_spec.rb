@@ -6,14 +6,14 @@ describe FactoryGirl::RemoteApi::Request do
 
     it 'returns the parsed json if no root is set' do
       uri = URI("#{config.server_url}#{config.server_mount_path}/attributes_for/user?user%5Bfirst_name%5D=James")
-      Net::HTTP.should_receive(:get_response).with(uri).and_return(stub(:response, body: '{ "first_name": "James"}'))
+      Net::HTTP.should_receive(:get_response).with(uri).and_return(double(:response, body: '{ "first_name": "James"}'))
       response = FactoryGirl::RemoteApi::Request.new.get_response_for(:attributes_for, :user, first_name: "James")
       expect(response).to eq("first_name" => "James")
     end
 
     it 'returns the model inside the root json element if present' do
       uri = URI("#{config.server_url}#{config.server_mount_path}/attributes_for/user?user%5Bfirst_name%5D=James")
-      stub_response = stub(:response, body: '{ "user": {"first_name": "James"}}')
+      stub_response = double(:response, body: '{ "user": {"first_name": "James"}}')
       Net::HTTP.should_receive(:get_response).with(uri).and_return(stub_response)
       response = FactoryGirl::RemoteApi::Request.new.get_response_for(:attributes_for, :user, first_name: "James")
       expect(response).to eq("first_name" => "James")
@@ -23,7 +23,7 @@ describe FactoryGirl::RemoteApi::Request do
       url = "#{config.server_url}#{config.server_mount_path}/authenticated_user"
       params = '?authenticated_user%5Bfirst_name%5D=James&authenticated_user%5Bparent_factory%5D=user'
       uri = URI(url + params)
-      stub_response = stub(:response, body: '{ "user": {"first_name": "James"}}')
+      stub_response = double(:response, body: '{ "user": {"first_name": "James"}}')
       Net::HTTP.should_receive(:get_response).with(uri).and_return(stub_response)
       response = FactoryGirl::RemoteApi::Request.new.get_response_for(:create,
                                                                            :authenticated_user,

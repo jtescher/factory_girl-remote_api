@@ -3,7 +3,7 @@ module StubWithRealResponse
     FactoryGirl::RemoteApi.reset_configuration
     visit [config.server_mount_path, path].join
     uri = URI([config.server_url, config.server_mount_path, path].join)
-    Net::HTTP.should_receive(:get_response).with(uri).and_return(stub(:response, body: page.body))
+    Net::HTTP.should_receive(:get_response).with(uri).and_return(double(:response, body: page.body))
   end
 end
 

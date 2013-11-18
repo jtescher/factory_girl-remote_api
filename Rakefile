@@ -38,7 +38,7 @@ end
 rails_minor_version = if ENV['BUNDLE_GEMFILE'] =~ /gemfiles/
                         ENV['BUNDLE_GEMFILE'].split('/').last.scan(/(\d).(\d)/).join
                       else
-                        '32'
+                        '40'
                       end
 APP_RAKEFILE = File.expand_path("../spec/dummy_#{rails_minor_version}/Rakefile", __FILE__)
 
