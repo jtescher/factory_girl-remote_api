@@ -23,9 +23,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'factory_girl_rails', '~> 4.2'
 
   if defined?(JRUBY_VERSION)
-    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.2.9'
+    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.3.3'
   else
-    s.add_development_dependency 'sqlite3', '~> 1.3.7'
+    s.add_development_dependency 'sqlite3', '~> 1.3.8'
   end
   s.add_development_dependency 'rails', '>= 3.1.0'
   s.add_development_dependency 'rdoc', '>= 3.4'
